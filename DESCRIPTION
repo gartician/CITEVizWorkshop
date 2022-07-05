@@ -34,4 +34,4 @@ Suggests:
 URL: https://gartician.github.io/CITEVizWorkshop/
 BugReports: https://github.com/seandavi/BuildABiocWorkshop/issues/new/choose
 VignetteBuilder: knitr
-DockerImage: ghcr.io/seandavi/buildabiocworkshop:latest
+DockerImage: ghcr.io/gartician/CITEVizWorkshop:latest
