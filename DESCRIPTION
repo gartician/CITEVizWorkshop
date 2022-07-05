@@ -1,28 +1,37 @@
-Package: BuildABiocWorkshop
-Title: Bioconductor or R Workshop Template and Github Actions
+Package: CITEViz
+Title: CITEViz BioConductor 2022
 Version: 2.0.0
 Authors@R: 
-    person(given = "Sean",
-           family = "Davis",
-           role = c("aut", "cre"),
-           email = "seandavi@gmail.com",
-           comment = c(ORCID = "0000-0002-8991-6458"))
-Description: This package serves as a template for using github actions to 
-    prepare a Bioconductor Workshop package for use. In particular,
-    a pkgdown website and docker image are generated based on workflow 
-    settings. 
+    person(given = "Garth", family = "Kong", role = c("aut", "cre"), email = "kongga2017@gmail.com", comment = c(ORCID = "0000-0001-5262-5406"))
+Description: CITEViz is a single-cell visualization platform with a custom module that replicates the interactive flow cytometry workflow in CITE-Seq. Users can can isolate cell populations of interest using the protein assay in CITE-Seq with minimal computational training. Additional features of CITEViz includes assessment of quality control metrics, feature visualization (feature expression and co-expression), and evaluation of clusters.
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.0
-Depends: 
-    Biobase
-Suggests: 
+Imports: 
+    bslib,
+    config (>= 0.3.1),
+    dplyr,
+    DT,
+    ggplot2,
+    golem (>= 0.3.1),
+    grDevices,
+    magrittr,
+    methods,
+    plotly,
+    rlang,
+    SeuratObject,
+    shiny (>= 1.6.0),
+    stats, 
+    tibble,
+    vembedr
+Encoding: UTF-8
+Suggests:
     knitr,
-    rmarkdown,
-    pkgdown
-URL: https://seandavi.github.io/BuildABiocWorkshop/
+    spelling,
+    testthat (>= 3.0.0)
+URL: https://gartician.github.io/CITEVizWorkshop/
 BugReports: https://github.com/seandavi/BuildABiocWorkshop/issues/new/choose
 VignetteBuilder: knitr
 DockerImage: ghcr.io/seandavi/buildabiocworkshop:latest
