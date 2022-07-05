@@ -20,6 +20,7 @@ Imports:
     magrittr,
     methods,
     plotly,
+    rmarkdown,
     rlang,
     SeuratObject,
     shiny (>= 1.6.0),
