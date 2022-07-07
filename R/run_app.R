@@ -11,8 +11,8 @@
 #' @return Initialization of CITEViz app
 #' 
 #' @examples
-#' \dontrun {
-#'   run_app()
+#' \dontrun{
+#' run_app()
 #' }
 #' 
 run_app <- function(
