@@ -10,10 +10,7 @@
 #' 
 #' @return Initialization of CITEViz app
 #' 
-#' @examples
-#' \donttest{
-#' run_app()
-#' }
+#' @noRd
 #' 
 run_app <- function(
   onStart = NULL,
