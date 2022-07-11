@@ -25,6 +25,45 @@
     <loc>https://gartician.github.io/CITEVizWorkshop/index.html</loc>
   </url>
   <url>
+    <loc>https://gartician.github.io/CITEVizWorkshop/reference/Gate-class.html</loc>
+  </url>
+  <url>
+    <loc>https://gartician.github.io/CITEVizWorkshop/reference/Gate.html</loc>
+  </url>
+  <url>
+    <loc>https://gartician.github.io/CITEVizWorkshop/reference/GetData.html</loc>
+  </url>
+  <url>
+    <loc>https://gartician.github.io/CITEVizWorkshop/reference/SetSubsetName.html</loc>
+  </url>
+  <url>
+    <loc>https://gartician.github.io/CITEVizWorkshop/reference/create_2d_color_legend.html</loc>
+  </url>
+  <url>
+    <loc>https://gartician.github.io/CITEVizWorkshop/reference/create_gating_df.html</loc>
+  </url>
+  <url>
+    <loc>https://gartician.github.io/CITEVizWorkshop/reference/create_gating_dt.html</loc>
+  </url>
+  <url>
+    <loc>https://gartician.github.io/CITEVizWorkshop/reference/get_bilinear_val.html</loc>
+  </url>
+  <url>
+    <loc>https://gartician.github.io/CITEVizWorkshop/reference/get_color_matrix_df.html</loc>
+  </url>
+  <url>
+    <loc>https://gartician.github.io/CITEVizWorkshop/reference/get_palette.html</loc>
+  </url>
+  <url>
+    <loc>https://gartician.github.io/CITEVizWorkshop/reference/get_reactive_gate_list.html</loc>
+  </url>
+  <url>
     <loc>https://gartician.github.io/CITEVizWorkshop/reference/index.html</loc>
+  </url>
+  <url>
+    <loc>https://gartician.github.io/CITEVizWorkshop/reference/run_app.html</loc>
+  </url>
+  <url>
+    <loc>https://gartician.github.io/CITEVizWorkshop/reference/update_gating_df.html</loc>
   </url>
 </urlset>
