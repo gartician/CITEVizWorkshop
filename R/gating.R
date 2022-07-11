@@ -86,8 +86,6 @@ create_gate_from_input <- function(input, is_forward_gating = TRUE, assay_count_
 #'
 #' @return reactive gate list for app purposes
 #' @export
-#'
-#' @noRd
 #' 
 get_reactive_gate_list <- function(gating_reactiveValues) {
     reactive_gate_list <- reactive({
