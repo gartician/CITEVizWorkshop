@@ -1,6 +1,6 @@
 Package: CITEViz
-Title: CITEViz BioConductor 2022
-Version: 2.0.0
+Title: CITEViz Workshop BioConductor 2022
+Version: 1.0.0
 Authors@R: c(
     person('Garth', 'Kong', email = 'kongga2017@gmail.com', role = c('cre', 'aut'), comment = c(ORCID = '0000-0001-5262-5406')),
     person('Thai', 'Nguyen', email = 'tnguye14@uoregon.edu', role = 'aut', comment = c(ORCID = '0000-0002-8988-4003')),
@@ -17,7 +17,7 @@ License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.1.0
+RoxygenNote: 7.2.0
 Imports: 
     bslib,
     config (>= 0.3.1),
@@ -29,8 +29,8 @@ Imports:
     magrittr,
     methods,
     plotly,
-    rmarkdown,
     rlang,
+    Seurat,
     SeuratObject,
     shiny (>= 1.6.0),
     stats, 
@@ -43,4 +43,4 @@ Suggests:
 URL: https://gartician.github.io/CITEVizWorkshop/
 BugReports: https://github.com/seandavi/BuildABiocWorkshop/issues/new/choose
 VignetteBuilder: knitr
-DockerImage: ghcr.io/gartician/CITEVizWorkshop:latest
+DockerImage: ghcr.io/gartician/citevizworkshop:latest
