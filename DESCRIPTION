@@ -30,6 +30,7 @@ Imports:
     methods,
     plotly,
     rlang,
+    rmarkdown,
     Seurat,
     SeuratObject,
     shiny (>= 1.6.0),
