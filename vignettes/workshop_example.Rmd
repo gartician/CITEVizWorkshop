@@ -1,9 +1,9 @@
 ---
-title: "An Example Workshop"
+title: "CITEViz: Replicating the Interactive Flow Cytometry Workflow in CITE-Seq"
 author: Sean Davis^[seandavi@gmail.com]
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{An Example Workshop}
+  %\VignetteIndexEntry{CITEViz: Replicating the Interactive Flow Cytometry Workflow in CITE-Seq}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
