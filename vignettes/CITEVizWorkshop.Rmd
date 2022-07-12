@@ -42,7 +42,27 @@ vignette: >
 
 CITEViz is a single-cell visualization platform with a custom module that replicates the interactive flow-cytometry gating workflow. With CITE-Viz, users can investigate CITE-Seq specific quality control (QC) metrics, view multi-omic co-expression feature plots, and classify cell clusters by iteratively gating on the abundance of cell surface markers. CITE-Viz was developed to make multi-modal single-cell analysis accessible to a wide variety of biologists, with the aim to discover new insights into their data and to facilitate novel hypothesis generation. If you use our package, please cite our paper: [CITE-Viz: Replicating the Interactive Flow Cytometry Workflow in CITE-Seq.](https://www.biorxiv.org/content/10.1101/2022.05.15.491411v1). 
 
-## Gating
+## CITEViz Workshop Curriculum
+
+* Gating
+
+    * 1-layer gates
+
+    * 2-layer gates
+
+    * Back-gate
+
+    * Differential expression
+
+* Feature Co-Expression Plots
+
+    * ADT-vs-ADT
+
+    * ADT-vs-RNA
+
+* Quality Control
+
+* Cluster Visualization
 
 ## Gating - Differential Expression
 
@@ -50,25 +70,26 @@ When two cell populations of interest are isolated, the gating data can be read 
 
 ```{r eval=FALSE}
 library(Seurat)
+
 # import original data
-pbmc_small <- readRDS("small_pbmc.rds")
-# import gates defined in CITEViz
-b_gate <- readRDS("B-cells.rds")
-nk_gate <- readRDS("NK-cells.rds")
+pbmc = readRDS("inst/extdata/small_pbmc_2.rds")
+
+# import gate information
+b_gate = readRDS("inst/extdata/B-Cells.rds")
+nk_gate = readRDS("inst/extdata/NK-Cells.rds")
+
 # extract cell barcodes in each gate
-b_barcodes <- b_cells$gate_1@subset_cells[[1]]
+b_barcodes <- b_gate$gate_1@subset_cells[[1]]
 nk_barcodes <- nk_gate$gate_1@subset_cells[[1]]
-# preview some cell barcodes in each gate
-head(b_barcodes)
-head(nk_barcodes)
 ```
 
 ```{r eval=FALSE}
-# ensure different cell barcodes in both gates
+# make sure no overlapping cells between gates
 b_barcodes <- setdiff(b_barcodes, nk_barcodes)
-# prepare differential expression
-diff_exp <- FindMarkers(pbmc_small, ident.1 = b_barcodes, ident.2 = nk_barcodes)
-# view differential expression results
+
+# differential expression
+diff_exp <- FindMarkers(pbmc, ident.1 = b_barcodes, ident.2 = nk_barcodes)
+
 View(diff_exp)
 ```
 
@@ -84,13 +105,6 @@ View(diff_exp)
 | TYROBP    | 8.83e-219 | 2.51       | 0.28  | 0.98  | 1.83e-214 |
 | LINC00926 | 1.21e-216 | 1.65       | 0.828 | 0.02  | 2.51e-212 |
 
-## Feature Co-Expression
-
-## Clustering
-
-## Quality Control
-
 ## Supplementary Information
 
 CITEViz comes with accompanying slides located [here](https://www.google.com).
-

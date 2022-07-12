@@ -1,5 +1,5 @@
 Package: CITEViz
-Title: CITEViz Workshop BioConductor 2022
+Title: CITEViz: Replicating the Interactive Flow Cytometry Workflow in CITE-Seq
 Version: 1.0.0
 Authors@R: c(
     person('Garth', 'Kong', email = 'kongga2017@gmail.com', role = c('cre', 'aut'), comment = c(ORCID = '0000-0001-5262-5406')),
@@ -29,8 +29,6 @@ Imports:
     methods,
     plotly,
     rlang,
-    rmarkdown,
-    Seurat,
     SeuratObject,
     shiny (>= 1.6.0),
     stats, 
@@ -38,7 +36,10 @@ Imports:
     vembedr
 Suggests:
     knitr,
+    BiocStyle,
+    rmarkdown,
     spelling,
+    Seurat,
     testthat (>= 3.0.0)
 URL: https://gartician.github.io/CITEVizWorkshop/
 BugReports: https://github.com/seandavi/BuildABiocWorkshop/issues/new/choose
