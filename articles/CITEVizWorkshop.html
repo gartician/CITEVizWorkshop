@@ -149,8 +149,28 @@ Replicating the Interactive Flow Cytometry Workflow in
 CITE-Seq.</a>.</p>
 </div>
 <div class="section level2">
-<h2 id="gating">Gating<a class="anchor" aria-label="anchor" href="#gating"></a>
+<h2 id="citeviz-workshop-curriculum">CITEViz Workshop Curriculum<a class="anchor" aria-label="anchor" href="#citeviz-workshop-curriculum"></a>
 </h2>
+<ul>
+<li>
+<p>Gating</p>
+<ul>
+<li><p>1-layer gates</p></li>
+<li><p>2-layer gates</p></li>
+<li><p>Back-gate</p></li>
+<li><p>Differential expression</p></li>
+</ul>
+</li>
+<li>
+<p>Feature Co-Expression Plots</p>
+<ul>
+<li><p>ADT-vs-ADT</p></li>
+<li><p>ADT-vs-RNA</p></li>
+</ul>
+</li>
+<li><p>Quality Control</p></li>
+<li><p>Cluster Visualization</p></li>
+</ul>
 </div>
 <div class="section level2">
 <h2 id="gating---differential-expression">Gating - Differential Expression<a class="anchor" aria-label="anchor" href="#gating---differential-expression"></a>
@@ -160,23 +180,24 @@ can be read back into Seurat to facilitate differential expression as
 follows:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://satijalab.org/seurat" class="external-link">Seurat</a></span><span class="op">)</span></span>
+<span></span>
 <span><span class="co"># import original data</span></span>
-<span><span class="va">pbmc_small</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/readRDS.html" class="external-link">readRDS</a></span><span class="op">(</span><span class="st">"small_pbmc.rds"</span><span class="op">)</span></span>
-<span><span class="co"># import gates defined in CITEViz</span></span>
-<span><span class="va">b_gate</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/readRDS.html" class="external-link">readRDS</a></span><span class="op">(</span><span class="st">"B-cells.rds"</span><span class="op">)</span></span>
-<span><span class="va">nk_gate</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/readRDS.html" class="external-link">readRDS</a></span><span class="op">(</span><span class="st">"NK-cells.rds"</span><span class="op">)</span></span>
+<span><span class="va">pbmc</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/readRDS.html" class="external-link">readRDS</a></span><span class="op">(</span><span class="st">"inst/extdata/small_pbmc_2.rds"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># import gate information</span></span>
+<span><span class="va">b_gate</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/readRDS.html" class="external-link">readRDS</a></span><span class="op">(</span><span class="st">"inst/extdata/B-Cells.rds"</span><span class="op">)</span></span>
+<span><span class="va">nk_gate</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/readRDS.html" class="external-link">readRDS</a></span><span class="op">(</span><span class="st">"inst/extdata/NK-Cells.rds"</span><span class="op">)</span></span>
+<span></span>
 <span><span class="co"># extract cell barcodes in each gate</span></span>
-<span><span class="va">b_barcodes</span> <span class="op">&lt;-</span> <span class="va">b_cells</span><span class="op">$</span><span class="va">gate_1</span><span class="op">@</span><span class="va">subset_cells</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span></span>
-<span><span class="va">nk_barcodes</span> <span class="op">&lt;-</span> <span class="va">nk_gate</span><span class="op">$</span><span class="va">gate_1</span><span class="op">@</span><span class="va">subset_cells</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span></span>
-<span><span class="co"># preview some cell barcodes in each gate</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">b_barcodes</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">nk_barcodes</span><span class="op">)</span></span></code></pre></div>
+<span><span class="va">b_barcodes</span> <span class="op">&lt;-</span> <span class="va">b_gate</span><span class="op">$</span><span class="va">gate_1</span><span class="op">@</span><span class="va">subset_cells</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span></span>
+<span><span class="va">nk_barcodes</span> <span class="op">&lt;-</span> <span class="va">nk_gate</span><span class="op">$</span><span class="va">gate_1</span><span class="op">@</span><span class="va">subset_cells</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span></span></code></pre></div>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># ensure different cell barcodes in both gates</span></span>
+<code class="sourceCode R"><span><span class="co"># make sure no overlapping cells between gates</span></span>
 <span><span class="va">b_barcodes</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sets.html" class="external-link">setdiff</a></span><span class="op">(</span><span class="va">b_barcodes</span>, <span class="va">nk_barcodes</span><span class="op">)</span></span>
-<span><span class="co"># prepare differential expression</span></span>
-<span><span class="va">diff_exp</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://satijalab.org/seurat/reference/FindMarkers.html" class="external-link">FindMarkers</a></span><span class="op">(</span><span class="va">pbmc_small</span>, ident.1 <span class="op">=</span> <span class="va">b_barcodes</span>, ident.2 <span class="op">=</span> <span class="va">nk_barcodes</span><span class="op">)</span></span>
-<span><span class="co"># view differential expression results</span></span>
+<span></span>
+<span><span class="co"># differential expression</span></span>
+<span><span class="va">diff_exp</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://satijalab.org/seurat/reference/FindMarkers.html" class="external-link">FindMarkers</a></span><span class="op">(</span><span class="va">pbmc</span>, ident.1 <span class="op">=</span> <span class="va">b_barcodes</span>, ident.2 <span class="op">=</span> <span class="va">nk_barcodes</span><span class="op">)</span></span>
+<span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/View.html" class="external-link">View</a></span><span class="op">(</span><span class="va">diff_exp</span><span class="op">)</span></span></code></pre></div>
 <table style="width:100%;" class="table">
 <colgroup>
@@ -270,18 +291,6 @@ follows:</p>
 </tr>
 </tbody>
 </table>
-</div>
-<div class="section level2">
-<h2 id="feature-co-expression">Feature Co-Expression<a class="anchor" aria-label="anchor" href="#feature-co-expression"></a>
-</h2>
-</div>
-<div class="section level2">
-<h2 id="clustering">Clustering<a class="anchor" aria-label="anchor" href="#clustering"></a>
-</h2>
-</div>
-<div class="section level2">
-<h2 id="quality-control">Quality Control<a class="anchor" aria-label="anchor" href="#quality-control"></a>
-</h2>
 </div>
 <div class="section level2">
 <h2 id="supplementary-information">Supplementary Information<a class="anchor" aria-label="anchor" href="#supplementary-information"></a>
