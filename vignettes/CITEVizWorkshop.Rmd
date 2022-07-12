@@ -31,8 +31,9 @@ author:
       "Knight Cancer Institute, Oregon Health and Science University"
 
 package: CITEViz 1.0
-output:rmarkdown::html_vignette
+output: rmarkdown::html_vignette
 vignette: >
+  %\VignetteIndexEntry{'CITEViz: Replicating the Interactive Flow Cytometry Workflow in CITE-Seq'}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
