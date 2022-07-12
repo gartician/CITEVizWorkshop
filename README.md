@@ -1,52 +1,52 @@
-# BuildABiocWorkshop
+# CITEViz BioConductor Workshop 2022
 
-This package is a template for building a Bioconductor workshop. The package
-includes Github actions to:
+_Garth Kong<sup>1</sup>,
+Thai Nguyen<sup>2</sup>,
+Wesley Rosales<sup>2</sup>,
+Anjali Panikar<sup>2</sup>,
+John Cheney<sup>2</sup>,
+Brittany Curtiss<sup>1</sup>,
+Sarah Carratt<sup>1</sup>,
+Theodore Braun<sup>1</sup>,
+Julia Maxson<sup>1</sup>_
 
-1. Set up bioconductor/bioconductor_docker:devel on Github resources
-2. Install package dependencies for your package (based on the `DESCRIPTION` file)
-3. Run `rcmdcheck::rcmdcheck`
-4. Build a pkgdown website and push it to github pages
-5. Build a docker image with the installed package and dependencies and deploy to [the Github Container Repository](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry#pulling-container-images) at the name `ghcr.io/gihub_user/repo_name`, all lowercase. 
+<sup>1</sup> Oregon Health and Science University, Division of Oncological Sciences
 
-## Responsibilities
+<sup>2</sup> University of Oregon, Knight Cancer Internship Program - Bioinformatics
 
-Package authors are primarily responsible for:
+## Workshop Description
 
-1. Creating a landing site of their choosing for their workshops (a website). This website should be listed in the `DESCRIPTION` file as the `URL`.
-2. Creating a docker image that will contain workshop materials and the installed packages necessary to run those materials. The name of the resulting docker image, including "tag" if desired, should be listed in a non-standard tag, `DockerImage:` in the `DESCRIPTION` file. 
+Multi-omic single-cell sequencing assays measure multiple macromolecules in the same cell and can often yield new insights not revealed with a single modality. For example, CITE-Seq (Cellular Indexing of Transcriptomes and Epitopes by Sequencing) simultaneously profiles the single-cell RNA transcriptome and the surface protein expression. The extra dimensions of data in these assays can be leveraged to better identify cell clusters - an essential step for downstream analyses and interpretation. To facilitate cell cluster classification and visualization in CITE-Seq, we developed CITE-Viz.
 
-Both of those tasks can be accomplished using the Github actions included in this template package. The vignette accompanying this package describes how to accomplish both of these tasks.
+CITE-Viz is a single-cell visualization platform with a custom module that replicates the interactive flow-cytometry gating workflow. With CITE-Viz, users can investigate CITE-Seq specific quality control (QC) metrics, view multi-omic co-expression feature plots, and classify cell clusters by iteratively gating on the abundance of cell surface markers.  
 
-## Details
+CITE-Viz was developed to make multi-modal single-cell analysis accessible to a wide variety of biologists, with the aim to discover new insights into their data and to facilitate novel hypothesis generation.
 
-For detailed instructions, see the `How to build a workshop` article/vignette.
+## How to Get Started Using Docker
 
-## Results of successful deployment
+BioConductor workshops are available as Docker containers before and after the conference. To access the CITEViz workshop contents, make sure you have Docker installed, and then use the following instructions in a terminal:
 
-- A working docker image that contains the installed package and dependencies.
-- An up-to-date `pkgdown` website at https://YOURUSERNAME.github.io/YOURREPOSITORYNAME/
-- Docker image will be tagged with `latest`, `sha-XXXXXX` where `XXXXXX` is the hash of the current `master` commit, and `master`. 
-
-## To use the resulting image:
-
-```sh
-docker run -e PASSWORD=<choose_a_password_for_rstudio> -p 8787:8787 YOURDOCKERIMAGENAME
-```
-Once running, navigate to http://localhost:8787/ and then login with `rstudio`:`yourchosenpassword`. 
-
-To try with **this** repository docker image:
-
-```sh
-docker run -e PASSWORD=abc -p 8787:8787 ghcr.io/seandavi/buildabiocworkshop
+```bash
+docker run -e PASSWORD=abc -p 8787:8787 ghcr.io/gartician/citevizworkshop:latest
 ```
 
-*NOTE*: Running docker that uses the password in plain text like above exposes the password to others 
-in a multi-user system (like a shared workstation or compute node). In practice, consider using an environment 
-variable instead of plain text to pass along passwords and other secrets in docker command lines. 
+And then input `localhost:8787` into your local web browser and sign in using `rstudio` as the username and the value of `PASSWORD` as the password. Then input the following into the R console:
 
+```R
+library(CITEViz)
+run_app()
+```
 
-## Whatcha get
+## How to Get Started Using R
 
-- https://seandavi.github.io/BuildABiocWorkshop
-- A Docker image that you can run locally, in the cloud, or (usually) even as a singularity container on HPC systems. 
+CITEViz is also available for installation using `devtools` in R. In your local RStudio environment, use the following code:
+
+```R
+devtools::install_github("maxsonBraunLab/CITE-Viz")
+library(CITEViz)
+run_app()
+```
+
+## Supplementary Information
+
+CITEViz is a short workshop within the [BioConductor 2022](https://bioc2022.bioconductor.org/) conference and it comes with accompanying slides located [here](https://www.google.com).

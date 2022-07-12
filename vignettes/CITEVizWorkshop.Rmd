@@ -1,0 +1,96 @@
+---
+title: "CITEViz: Replicating the Interactive Flow Cytometry Workflow in CITE-Seq"
+subtitle: "In other words, how do I use what's here"
+author:
+  - name: Garth Kong
+    affiliation:
+      "Knight Cancer Institute, Oregon Health and Science University"
+  - name: Thai Nguyen
+    affiliation:
+      "Bioinformatics and Genomics Masters Program, University of Oregon"
+  - name: Wesley Rosales
+    affiliation:
+      "Bioinformatics and Genomics Masters Program, University of Oregon"
+  - name: Anjali Panikar
+    affiliation:
+      "Bioinformatics and Genomics Masters Program, University of Oregon"
+  - name: John Cheney
+    affiliation:
+      "Bioinformatics and Genomics Masters Program, University of Oregon"
+  - name: Brittany Curtiss
+    affiliation:
+      "Knight Cancer Institute, Oregon Health and Science University"
+  - name: Sarah Carratt
+    affiliation:
+      "Knight Cancer Institute, Oregon Health and Science University"
+  - name: Theodore Braun
+    affiliation:
+      "Knight Cancer Institute, Oregon Health and Science University"
+  - name: Julia Maxson
+    affiliation:
+      "Knight Cancer Institute, Oregon Health and Science University"
+
+package: CITEViz 1.0
+output:rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{CITEViz: Replicating the Interactive Flow Cytometry Workflow in CITE-Seq}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+## About CITEViz
+
+CITEViz is a single-cell visualization platform with a custom module that replicates the interactive flow-cytometry gating workflow. With CITE-Viz, users can investigate CITE-Seq specific quality control (QC) metrics, view multi-omic co-expression feature plots, and classify cell clusters by iteratively gating on the abundance of cell surface markers. CITE-Viz was developed to make multi-modal single-cell analysis accessible to a wide variety of biologists, with the aim to discover new insights into their data and to facilitate novel hypothesis generation. If you use our package, please cite our paper: [CITE-Viz: Replicating the Interactive Flow Cytometry Workflow in CITE-Seq.](https://www.biorxiv.org/content/10.1101/2022.05.15.491411v1). 
+
+## Gating
+
+## Gating - Differential Expression
+
+When two cell populations of interest are isolated, the gating data can be read back into Seurat to facilitate differential expression as follows:
+
+```{r eval=FALSE}
+library(Seurat)
+# import original data
+pbmc_small <- readRDS("small_pbmc.rds")
+# import gates defined in CITEViz
+b_gate <- readRDS("B-cells.rds")
+nk_gate <- readRDS("NK-cells.rds")
+# extract cell barcodes in each gate
+b_barcodes <- b_cells$gate_1@subset_cells[[1]]
+nk_barcodes <- nk_gate$gate_1@subset_cells[[1]]
+# preview some cell barcodes in each gate
+head(b_barcodes)
+head(nk_barcodes)
+```
+
+```{r eval=FALSE}
+# ensure different cell barcodes in both gates
+b_barcodes <- setdiff(b_barcodes, nk_barcodes)
+# prepare differential expression
+diff_exp <- FindMarkers(pbmc_small, ident.1 = b_barcodes, ident.2 = nk_barcodes)
+# view differential expression results
+View(diff_exp)
+```
+
+|           | p_val                 | avg_log2FC | pct.1 | pct.2 | p_val_adj             |
+|-----------|-----------------------|------------|-------|-------|-----------------------|
+| MS4A1     | 3.07e-279 | 3.17       | 0.983 | 0.03  | 6.38e-275 |
+| CD79A     | 1.99e-278 | 2.96       | 0.978 | 0.02  | 4.14e-274  |
+| IGHD      | 1.29e-272  | 3.22       | 0.957 | 0.01  | 2.67e-268 |
+| IGHM      | 9.57e-266 | 2.50       | 0.985 | 0.08  | 1.98e-261 |
+| BANK1     | 1.21e-258 | 2.29       | 0.93  | 0.01  | 2.50e-254 |
+| RALGPS2   | 2.69e-244 | 2.34       | 0.942 | 0.07  | 5.59e-240 |
+| CD79B     | 1.50e-222 | 2.17       | 0.949 | 0.16  | 3.12e-218 |
+| TYROBP    | 8.83e-219 | 2.51       | 0.28  | 0.98  | 1.83e-214 |
+| LINC00926 | 1.21e-216 | 1.65       | 0.828 | 0.02  | 2.51e-212 |
+
+## Feature Co-Expression
+
+## Clustering
+
+## Quality Control
+
+## Supplementary Information
+
+CITEViz comes with accompanying slides located [here](https://www.google.com).
+
