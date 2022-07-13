@@ -1,6 +1,5 @@
 ---
 title: "CITEViz: Replicating the Interactive Flow Cytometry Workflow in CITE-Seq"
-subtitle: "In other words, how do I use what's here"
 author:
   - name: Garth Kong
     affiliation:
