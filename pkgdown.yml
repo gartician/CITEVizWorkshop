@@ -3,7 +3,7 @@ pkgdown: 2.0.5
 pkgdown_sha: ~
 articles:
   CITEVizWorkshop: CITEVizWorkshop.html
-last_built: 2022-07-15T20:51Z
+last_built: 2022-07-15T20:54Z
 urls:
   reference: https://gartician.github.io/CITEVizWorkshop/reference
   article: https://gartician.github.io/CITEVizWorkshop/articles
