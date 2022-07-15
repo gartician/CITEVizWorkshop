@@ -141,7 +141,6 @@ app_ui <- function(request) {
       tabPanel("Quality Assurance",
                
                h3(strong("Quality Assurance"), style = "margin-top: 0;"),
-               p("This page contains plots for quality assurance (QA) of Seurat objects that have been outputted by a CITE-seq data analysis pipeline. Dotted lines in each QA plot represent the values at which 50%, 75%, and 95% of the data falls at or below that value. Please see the \"How to Use\" guide on the Getting Started page for additional help on how to use this page."),
                
                #container for sidebar panel and main panel
                sidebarLayout(
@@ -182,7 +181,6 @@ app_ui <- function(request) {
       tabPanel("Clustering", 
                
                h3(strong("Clustering"), style = "margin-top: 0;"),
-               p("This page contains cluster plots generated from single-cell data in the input Seurat object. Please see the \"How to Use\" guide on the Getting Started page for additional help on how to use this page."),
                
                #container for sidebar panel and main panel
                sidebarLayout(
@@ -245,7 +243,6 @@ app_ui <- function(request) {
                  tabPanel("Expression",
                           
                           h3(strong("Expression"), style = "margin-top: 0;"),
-                          p("This page contains cluster plots colored by expression values generated from single-cell data in the input Seurat object. Please see the \"How to Use\" guide on the Getting Started page for additional help on how to use this page."),
                           
                           #container for sidebar panel and main panel
                           sidebarLayout(
@@ -288,7 +285,6 @@ app_ui <- function(request) {
                 tabPanel("Co-Expression",
                          
                          h3(strong("Co-Expression"), style = "margin-top: 0;"),
-                         p("This page contains cluster plots colored by co-expression values generated from single-cell data in the input Seurat object. Please see the \"How to Use\" guide on the Getting Started page for additional help on how to use this page."),
                          
                          #container for sidebar panel and main panel
                          sidebarLayout(
@@ -341,9 +337,6 @@ app_ui <- function(request) {
                  tabPanel("Forward Gating by Assay Features",
                           
                           h3(strong("Forward Gating by Assay Features"), style = "margin-top: 0;"),
-                          p("This page is for gating by selected assay features such as gene transcripts (RNA) and antibody-derived tags (ADTs).
-         Gating on this page is done via the lasso or selection tool in the feature scatter plot. To reset the colors of the cells in the reduction plot, double-click anywhere in the feature scatter plot.
-         Please see the \"How to Use\" guide on the Getting Started page for additional help on how to use this page."),
                           #container for sidebar panel and main panel
                           sidebarLayout(
                             
@@ -412,9 +405,6 @@ app_ui <- function(request) {
                  tabPanel("Backgating by Reduction",
                           
                           h3(strong("Backgating by Reduction"), style = "margin-top: 0;"),
-                          p("This page is for backgating by selected assay features such as gene transcripts (RNA) and antibody-derived tags (ADTs).
-                 Backgating on this page is done via the lasso or selection tool in the reduction plot. To reset the colors of the cells in the feature scatter plot, double-click anywhere in the reduction  plot.
-                 Please see the \"How to Use\" guide on the Getting Started page for additional help on how to use this page."),
                           
                           #container for sidebar panel and main panel
                           sidebarLayout(
