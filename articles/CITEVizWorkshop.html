@@ -180,8 +180,8 @@ follows:</p>
 <span><span class="va">pbmc</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/readRDS.html" class="external-link">readRDS</a></span><span class="op">(</span><span class="st">"inst/extdata/small_pbmc_2.rds"</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># import gate information</span></span>
-<span><span class="va">b_gate</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/readRDS.html" class="external-link">readRDS</a></span><span class="op">(</span><span class="st">"inst/extdata/B-Cells.rds"</span><span class="op">)</span></span>
-<span><span class="va">nk_gate</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/readRDS.html" class="external-link">readRDS</a></span><span class="op">(</span><span class="st">"inst/extdata/NK-Cells.rds"</span><span class="op">)</span></span>
+<span><span class="va">b_gate</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/readRDS.html" class="external-link">readRDS</a></span><span class="op">(</span><span class="st">"inst/extdata/B-Cells-2.rds"</span><span class="op">)</span></span>
+<span><span class="va">nk_gate</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/readRDS.html" class="external-link">readRDS</a></span><span class="op">(</span><span class="st">"inst/extdata/NK-Cells-2.rds"</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># extract cell barcodes in each gate</span></span>
 <span><span class="va">b_barcodes</span> <span class="op">&lt;-</span> <span class="va">b_gate</span><span class="op">$</span><span class="va">gate_1</span><span class="op">@</span><span class="va">subset_cells</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span></span>
