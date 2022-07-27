@@ -49,4 +49,4 @@ run_app()
 
 ## Supplementary Information
 
-CITEViz is a short workshop within the [BioConductor 2022](https://bioc2022.bioconductor.org/) conference and it comes with accompanying slides located [here](https://www.google.com).
+CITEViz is a short workshop within the [BioConductor 2022](https://bioc2022.bioconductor.org/) conference and it comes with accompanying slides located [here](https://docs.google.com/presentation/d/1n5w68g73PxtCr951nfARrcublmCPtjEV/edit?usp=sharing&ouid=103073204322243618372&rtpof=true&sd=true).

@@ -74,8 +74,8 @@ library(Seurat)
 pbmc = readRDS("inst/extdata/small_pbmc_2.rds")
 
 # import gate information
-b_gate = readRDS("inst/extdata/B-Cells.rds")
-nk_gate = readRDS("inst/extdata/NK-Cells.rds")
+b_gate = readRDS("inst/extdata/B-Cells-2.rds")
+nk_gate = readRDS("inst/extdata/NK-Cells-2.rds")
 
 # extract cell barcodes in each gate
 b_barcodes <- b_gate$gate_1@subset_cells[[1]]
