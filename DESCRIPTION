@@ -40,8 +40,9 @@ Suggests:
     rmarkdown,
     spelling,
     Seurat,
-    testthat (>= 3.0.0)
+    testthat (>= 3.0.0),
+    pkgdown
 URL: https://gartician.github.io/CITEVizWorkshop/
-BugReports: https://github.com/seandavi/BuildABiocWorkshop/issues/new/choose
+BugReports: https://github.com/gartician/CITEVizWorkshop/issues
 VignetteBuilder: knitr
 DockerImage: ghcr.io/gartician/citevizworkshop:latest

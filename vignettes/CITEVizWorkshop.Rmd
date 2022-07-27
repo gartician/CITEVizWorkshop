@@ -106,4 +106,4 @@ View(diff_exp)
 
 ## Supplementary Information
 
-CITEViz comes with accompanying slides located [here](https://www.google.com).
+CITEViz comes with accompanying slides located [here](https://docs.google.com/presentation/d/1n5w68g73PxtCr951nfARrcublmCPtjEV/edit?usp=sharing&ouid=103073204322243618372&rtpof=true&sd=true).
